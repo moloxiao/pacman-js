@@ -306,17 +306,20 @@ function handleGesture() {
     }
 }
 
-// Listen for touch events
+// Listen for touch events with passive set to false
 window.addEventListener("touchstart", (event) => {
     touchStartX = event.touches[0].clientX;
     touchStartY = event.touches[0].clientY;
-});
+}, { passive: false });
 
 window.addEventListener("touchmove", (event) => {
     touchEndX = event.touches[0].clientX;
     touchEndY = event.touches[0].clientY;
-});
+
+    // Prevent default touchmove behavior (e.g., scrolling)
+    event.preventDefault();
+}, { passive: false });
 
 window.addEventListener("touchend", (event) => {
     handleGesture();
-});
+}, { passive: false });
