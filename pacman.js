@@ -33,7 +33,7 @@ class Pacman {
                     this.getMapY() == i
                 ) {
                     map[i][j] = 3;
-                    score++;
+                    score = score + 100;
                 }
             }
         }
